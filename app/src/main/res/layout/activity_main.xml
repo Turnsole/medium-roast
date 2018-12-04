@@ -8,11 +8,11 @@
         tools:context=".MainActivity">
 
     <TextView
-            android:id="@+id/text"
+            android:id="@+id/description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/description"
             android:layout_marginTop="50dp"
+            android:text="@string/description_default"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
@@ -25,7 +25,7 @@
             android:text="@string/button_call_to_action"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text"/>
+            app:layout_constraintTop_toBottomOf="@id/description"/>
 
     <TextView
             android:id="@+id/counter"

@@ -5,21 +5,25 @@ import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 
+const val INTENT_KEY_USER_NAME = "user_name"
+
 class MainActivity : AppCompatActivity() {
 
     var counter = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_main)
 
-        findViewById<View>(R.id.button).setOnClickListener {
-            incrementCounter()
+        if (intent.hasExtra(INTENT_KEY_USER_NAME)) {
+            val name = intent.getStringExtra(INTENT_KEY_USER_NAME)
+            findViewById<TextView>(R.id.description).text = getString(R.string.description, name)
         }
-    }
 
-    private fun incrementCounter() {
-        counter += 1
-        findViewById<TextView>(R.id.counter).text = counter.toString()
+        findViewById<View>(R.id.button).setOnClickListener {
+            counter += 1
+            findViewById<TextView>(R.id.counter).text = counter.toString()
+        }
     }
 }
