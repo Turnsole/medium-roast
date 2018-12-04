@@ -35,22 +35,32 @@ class MainBot : BaseBot() {
         activityTestRule.launchActivity(intent)
     }
 
+    // Using 'infix' here allows us to use infix notation in the DSL, so not having to write the dots and parenthesis.
     infix fun next(block: MainActions.() -> Unit) : MainBot {
         MainActions().block()
         return this
     }
 
+    /**
+     * Any Espresso actions specific to MainActivity would go in this class, so they're easy to find and available
+     * inside the "next" blocks.
+     */
     class MainActions {
         fun clickButton() {
             Espresso.onView(ViewMatchers.withId(R.id.button)).perform(ViewActions.click())
         }
     }
 
+
     infix fun verify(block: MainAssertions.() -> Unit) : MainBot {
         MainAssertions().block()
         return this
     }
 
+    /**
+     * Any Espresso Assertions specific to MainActivity would go in this class, so they're easy to find and available
+     * inside the "verify" blocks.
+     */
     class MainAssertions {
 
         fun counterDisplays(count: Int) {
