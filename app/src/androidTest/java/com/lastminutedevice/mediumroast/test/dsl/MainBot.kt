@@ -17,7 +17,7 @@ fun mainBot(function: MainBot.() -> Unit) = MainBot().apply { function() }
 /**
  * This contains all the instrumentation code necessary to test the Main Activity.
  */
-class MainBot : BaseBot() {
+class MainBot {
 
     var userName: String? = null
 

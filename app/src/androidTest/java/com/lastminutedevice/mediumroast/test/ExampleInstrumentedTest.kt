@@ -17,7 +17,7 @@ class ExampleInstrumentedTest {
     fun counterIncrementsWhenPushed() {
         mainBot {
             userName = "MainBot"
-            launch()
+            launch ()
         } next {
             clickButton()
         } verify {
